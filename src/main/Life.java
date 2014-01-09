@@ -19,6 +19,8 @@ public class Life {
     public boolean isAlive() { return alive; }
     public boolean isInfected() { return infected; }
     
+    public void setAlive(boolean alive) { this.alive = alive; }
+    
     public Life(int x, int y, boolean alive) {
         this.x = x;
         this.y = y;
