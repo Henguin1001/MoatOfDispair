@@ -4,7 +4,7 @@ import java.util.TimerTask;
 
 public class GameControl extends TimerTask {
 
-    Display display;
+    private Display display;
 
     public GameControl(Display display) {
         this.display = display;

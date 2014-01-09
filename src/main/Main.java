@@ -8,7 +8,11 @@ import javax.swing.JPanel;
 
 public class Main extends JPanel {
 
-    static Life[][] grid = new Life[1000][500];
+    private static Life[][] grid = new Life[1000][500];
+    
+    private Color alive = Color.GREEN;
+    private Color blank = Color.BLACK;
+    private Color infected = new Color(102, 51, 153);
 
     public static void main(String[] args) {
         Display d = new Display("test", 1000, 500);
@@ -29,25 +33,22 @@ public class Main extends JPanel {
 
     }
 
+    @Override
     public void paintComponent(Graphics g) {
         g.setColor(Color.black);
-        g.fillRect(0, 0, 1000, 500);
-        for (int x = 0; x < 1000; x++) {
-            for (int y = 0; y < 500; y++) {
+        g.fillRect(0,0,1000,500);
+        for (int x=0;x<1000;x++) {
+            for (int y=0;y<500;y++) {
                 if (grid[x][y].update(grid)) {
-//					System.out.println();
-                    if (grid[x][y].alive) {
-                        g.setColor(Color.green);
-                    } else {
-                        g.setColor(Color.black);
-                    }
-                    if (grid[x][y].infected) {
-                        g.setColor(new Color(102, 51, 153));
-                    }
-                    g.fillRect(x, y, 1, 1);
+                    if (grid[x][y].isAlive())
+                        g.setColor(alive);
+                    else
+                        g.setColor(blank);
+                    if (grid[x][y].isInfected())
+                        g.setColor(infected);
+                    g.fillRect(x,y,1,1);
                 }
             }
         }
-//		System.out.println(grid[501][250].getAdjacent(grid));
     }
 }

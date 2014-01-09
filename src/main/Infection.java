@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Infection {
 
-    int distance = 0;
-    Random r = new Random();
+    private int distance = 0;
+    private Random r = new Random();
 
     public Infection() {
         distance = r.nextInt(100) + 800;

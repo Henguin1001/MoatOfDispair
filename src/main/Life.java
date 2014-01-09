@@ -4,18 +4,21 @@ import java.util.Random;
 
 public class Life {
 
-    int x, y;
-    int life = 10;
-    boolean alive = false;
-    boolean infected = false;
-    int rate = 0;
-    Random r;
-    Infection virus;
-    int illness = 30;
-    boolean spread = true;
+    private int x, y;
+    private int life = 10;
+    private boolean alive = false;
+    private boolean infected = false;
+    private int rate = 0;
+    private Random r;
+    private Infection virus;
+    private int illness = 30;
+    private boolean spread = true;
 
     public int time = 100;
-
+    
+    public boolean isAlive() { return alive; }
+    public boolean isInfected() { return infected; }
+    
     public Life(int x, int y, boolean alive) {
         this.x = x;
         this.y = y;

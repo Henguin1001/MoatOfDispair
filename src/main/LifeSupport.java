@@ -26,7 +26,7 @@ public class LifeSupport extends TimerTask {
         changed.clear();
         for (int x = 0; x < 1000; x++) {
             for (int y = 0; y < 500; y++) {
-                boolean alive = grid[x][y].alive;
+                boolean alive = grid[x][y].isAlive();
                 if (grid[x][y].update(grid) != alive) {
                     changed.add(grid[x][y]);
                 }
