@@ -1,20 +1,18 @@
 package main;
 
-import java.util.Random;
-
 public class Infection {
 
     private int distance = 0;
-    private Random r = new Random();
 
+    // This needs to be balanced.
     public Infection() {
-        distance = r.nextInt(100) + 800;
-        int random = r.nextInt(40);
+        distance = (int)(Math.random()*(100)) + 800;
+        int random = (int)(Math.random()*(40));
         if (random < 4)
             distance = 10000 + random * 50;
         if (random == 0) {
             distance = 10000000;
-        if (r.nextInt(10) == 0)
+        if ((int)(Math.random()*(10)) == 0)
             distance = Integer.MAX_VALUE;
         }
     }
