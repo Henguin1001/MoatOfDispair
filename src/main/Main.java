@@ -10,23 +10,26 @@ public class Main extends JPanel {
 
     private static Life[][] grid = new Life[1000][500];
     
-    private Color alive = Color.GREEN;
-    private Color blank = Color.BLACK;
-    private Color infected = new Color(102, 51, 153);
+    private static Color alive = Color.GREEN;
+    private static Color blank = Color.BLACK;
+    private static Color infected = new Color(102, 51, 153);
+    
+    public static final int width = 1000;
+    public static final int height = 500;
 
     public static void main(String[] args) {
-        Display d = new Display("test", 1000, 500);
+        Display d = new Display("test", width, height);
         Timer t = new Timer();
         t.schedule(new GameControl(d), 0, 50);
 
-        for (int x = 0; x < 1000; x++) {
-            for (int y = 0; y < 500; y++) {
-                grid[x][y] = new Life(x, y, false);
+        for (int x=0;x<width;x++) {
+            for (int y=0;y<height;y++) {
+                grid[x][y] = new Life(x,y,false);
             }
         }
-        for (int x = 495; x < 505; x++) {
-            for (int y = 245; y < 255; y++) {
-                grid[x][y] = new Life(x, y, true);
+        for (int x=width/2-5;x<width/2+5;x++) {
+            for (int y=height/2-5;y<height/2+5;y++) {
+                grid[x][y] = new Life(x,y,true);
             }
         }
 
